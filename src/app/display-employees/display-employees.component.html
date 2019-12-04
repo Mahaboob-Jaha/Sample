@@ -1,0 +1,37 @@
+<div class="card">
+    <div class="card-header">
+        <h3 align="center">List of Employees</h3>
+    </div>
+    <div class="card-body">
+        <button class="btn btn-primary" routerLink="/add-employee" appNoDbClick>Add Employee</button>
+        <button align="right" npm class="btn btn-danger" (click)="logOut()">Logout</button>
+        <table class="table table-bordered">
+            <thead>
+                
+                <th>S.No</th>
+                <th>Emp ID</th>
+                <th>First name</th>
+                <th>Last Name</th>
+                <th>Salary</th>
+                <th>Age</th>
+                <th>Action</th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let a of employees|paginate: { itemsPerPage: 10, currentPage:p};let i=index">
+                    <td>{{(p-1)*10+(i+1)}}</td>
+                    <td>{{a.id}}</td>
+                    <td>{{a.employee_name |fname}}</td>
+                    <td>{{a.employee_name|lname}}</td>
+                    <td>{{a.employee_salary}}</td>
+                    <td>{{a.employee_age}}</td>
+                    <td>
+                        <button class="btn btn-secondary" (click)="editRow(a.id)" appNoDbClick>Edit</button>&nbsp;
+                        <button class="btn btn-danger" (click)="deleteRow(a.id)" appNoDbClick>Delete</button>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <pagination-controls (pageChange)="p = $event" align="right"></pagination-controls>
+    </div>
+</div>

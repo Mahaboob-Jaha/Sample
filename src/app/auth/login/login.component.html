@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <h3 align="center">Login</h3>
+        </div>
+        <div class="card-body">
+            <form [formGroup]="login">
+                <div class="form-group">
+                    <label>Emp ID</label>
+                    <input type=text class="form-control" formControlName="id">
+                </div>
+                <div class="form-group">
+                    <label>Name</label>
+                    <input type="text" class="form-control" formControlName="name">
+                </div>
+                <span *ngIf="errorMsg" class="error">{{errorMsg}}</span>
+                <div class="form-group">
+                    <button class="btn btn-success" (click)="loginEmp()">Login</button>
+                    &nbsp;
+                    <button class="btn btn-warning" type="reset">Reset</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
